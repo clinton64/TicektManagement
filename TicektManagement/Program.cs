@@ -13,8 +13,8 @@ namespace TicektManagement
             Console.WriteLine("******welcome to the Online Ticket System*******");
             Console.WriteLine("\t Available Buses");
             Admin admin = new Admin("10", " clinton", "xyz@gmail.com", "4726");
-            admin.BuildRoutes();
-            List<Bus> buses = admin.AddBus();
+            BusService.BuildRoutes();
+            List<Bus> buses = BusService.AddBus();
             List<string> busIds = new List<string>();
             foreach (Bus bs in buses)
             {
@@ -28,7 +28,7 @@ namespace TicektManagement
             if (!busIds.Contains(busId))
                 goto readBusId;
 
-            Bus bus = admin.GetBus(busId);
+            Bus bus = BusService.GetBus(busId);
             List<string> seats = Bus.GetSeats();
             Console.WriteLine("Available Seats : \n");
             ViewSeats(seats);
